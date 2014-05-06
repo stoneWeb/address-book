@@ -1,41 +1,41 @@
 var initData = {phones:[{
         name: '谢霆锋',
-        phone: 13581970418,
+        phone: 13538291345,
         type: '家人',
         joinTime: '2014-05-06 10:05',
         id: 1
       },
       {
         name: '张柏芝',
-        phone: 13949103316,
+        phone: 13929384720,
         type: '家人',
         joinTime: '2014-05-06 10:15',
         id: 2
       },
       {
         name: '蔡卓妍',
-        phone: 15810389973,
+        phone: 15849284751,
         type: '同事',
         joinTime: '2014-05-06 10:25',
         id: 3
       },
       {
         name: '梁朝伟',
-        phone: 13462580109,
+        phone: 13457483911,
         type: '家人',
         joinTime: '2014-05-06 10:35',
         id: 4
       },
       {
         name: '钟欣潼',
-        phone: 18336601899,
+        phone: 18311938274,
         type: '朋友',
         joinTime: '2014-05-06 10:45',
         id: 5
       },
       {
         name: '陈冠希',
-        phone: 18611536942,
+        phone: 18639482716,
         type: '朋友',
         joinTime: '2014-05-06 10:55',
         id: 6
