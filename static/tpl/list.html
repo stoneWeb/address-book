@@ -1,0 +1,44 @@
+<div class="filter">
+  <label>查询：<input type="text" ng-model="query"></label>
+  <label>排序：<select ng-model="order">
+                  <option value="name">姓名</option>
+                  <option value="id">id</option>
+                </select></label>
+</div>
+<p>列表字段可双击编辑！</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th width="10%">id</th>
+      <th width="20%">姓名</th>
+      <th width="30%">电话</th>
+      <th width="20%">类型</th>
+      <th width="20%">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr 
+      ng-repeat="phone in phones | filter:query | orderBy:order track by phone.id" 
+      ng-class="{
+      nameedit: phone == edit.phone && edit.key == 'name',
+      phoneedit: phone == edit.phone && edit.key == 'phone',
+      typeedit: phone == edit.phone && edit.key == 'type'
+    }"
+    >
+      <td>{{phone.id}}</td>
+      <td class="list-name">
+        <span ng-dblclick="dbck(phone, 'name')">{{phone.name}}</span>
+        <input type="text" name="name" class="span2" required ng-pattern="/(^[A-Za-z0-9]{2,20}$)|(^[\u4E00-\u9FA5]{2,8}$)/" ng-model="phone.name" value="{{phone.name}}" phone-focus="phone == edit.phone && edit.key == 'name'"> <input type="button" ng-click="save(phone)" class="btn" value="保存"> <input type="button" ng-click="cancel(phone)" class="btn" value="取消">
+      </td>
+      <td class="list-phone">
+        <span ng-dblclick="dbck(phone, 'phone')">{{phone.phone}}</span>
+        <input type="text" name="phone" class="span2" required ng-pattern="/(^[A-Za-z0-9]{2,20}$)|(^[\u4E00-\u9FA5]{2,8}$)/" ng-model="phone.phone" value="{{phone.phone}}" phone-focus="phone == edit.phone && edit.key == 'phone'"> <input type="button" ng-click="save(phone)" class="btn" value="保存"> <input type="button" ng-click="cancel(phone)" class="btn" value="取消">
+      </td>
+      <td class="list-type">
+        <span ng-dblclick="dbck(phone, 'type')">{{phone.type}}</span>
+        <input type="text" name="type" class="span2" ng-model="phone.type" value="{{phone.type}}" phone-focus="phone == edit.phone && edit.key == 'type'"> <input type="button" ng-click="save(phone)" class="btn" value="保存"> <input type="button" ng-click="cancel(phone)" class="btn" value="取消">
+      </td>
+      <td><a ng-click="remove(phone.id)" class="btn btn-danger">删除</a> <a class="btn" href="#/view/{{phone.id}}">详细</a></td>
+    </tr>
+  </tbody>
+</table>
